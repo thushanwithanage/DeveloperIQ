@@ -7,7 +7,7 @@ from services.get_stat_records import get_monthly_stats
 from services.save_record import save_dev_stats
 from services.read_github import get_github_data
 from services.filter_prs import filter_out_prs
-from services.created_issues import filter_created_issues
+from services.created_issues import filter_issues
 
 from services.format_response import format_user_response, format_user_stats_response
 
@@ -32,7 +32,7 @@ async def read_users():
 async def created_issues(user: str):
     all_issues = get_github_data(created_issues_url+user, headers)
     created_issues = filter_out_prs(all_issues)
-    created_issue_count_by_user = filter_created_issues(created_issues, user)
+    created_issue_count_by_user = filter_issues(created_issues, user)
     return json.loads(str(created_issue_count_by_user))
 
 @app.post("/insert")

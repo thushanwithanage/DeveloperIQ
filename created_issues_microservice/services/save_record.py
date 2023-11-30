@@ -8,7 +8,6 @@ from utils.constants import database_name,stats_collection_name
 
 def save_dev_stats(userStats: UserStats):
     try:
-        #print(userStats)
         client = MongoClient(database_url)
         db = client[database_name]
         collection = db[stats_collection_name]
