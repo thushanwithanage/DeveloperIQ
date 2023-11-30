@@ -29,7 +29,7 @@ async def read_users():
     return json.loads(users)
 
 @app.get("/closed_issues/{user}")
-async def created_issues(user: str):
+async def closed_issues(user: str):
     all_issues = get_github_data(closed_issues_url+user, headers)
     closed_issues = filter_out_prs(all_issues)
     closed_issue_count_by_user = filter_issues(closed_issues, user)
@@ -46,7 +46,7 @@ async def save_user_stats():
     user_id_list, username_list = format_user_response(users)
     save_stats_list = []
     for uid, uname in zip(user_id_list, username_list):
-        closed_issues_count = await created_issues(uname)
+        closed_issues_count = await closed_issues(uname)
         developer_stats = format_developer_stats(uname,uid,closed_issues_count)
         save_stats_list.append(await save_stat(developer_stats))
     insert_status_data = format_user_stats_response(user_id_list, save_stats_list)
