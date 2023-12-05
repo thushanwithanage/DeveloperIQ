@@ -1,7 +1,7 @@
 import requests
 import json
 
-base_url = ""
+base_url = "https://musical-capybara-7w56w559459fx955-8082.app.github.dev"
 
 def test_root_endpoint():
     response = requests.get(f"{base_url}/")

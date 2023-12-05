@@ -1,12 +1,12 @@
 import requests
 import json
 
-base_url = ""
+base_url = "https://musical-capybara-7w56w559459fx955-8084.app.github.dev"
 
 def test_root_endpoint():
     response = requests.get(f"{base_url}/")
     assert response.status_code == 200
-    assert response.json() == {"response": "Github created issues route"}
+    assert response.json() == {"response": "Github created prs route"}
 
 def test_read_users():
     response = requests.get(f"{base_url}/users")
