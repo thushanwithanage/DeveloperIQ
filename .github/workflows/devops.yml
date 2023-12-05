@@ -29,31 +29,31 @@ jobs:
 
     - name: Build and Push Created Issues Microservice Docker image
       run: |
-        docker build -t created_issues_microservice_image created_issues_microservice/
-        docker tag created_issues_microservice_image:latest ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_issues_instance:latest
-        docker push ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_issues_instance:latest
+        #docker build -t created_issues_microservice_image created_issues_microservice/
+        #docker tag created_issues_microservice_image:latest ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_issues_instance:latest
+        #docker push ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_issues_instance:latest
     - name: Build and Push Closed Issues Microservice Docker image
       run: |
-        docker build -t closed_issues_microservice_image closed_issues_microservice/
-        docker tag closed_issues_microservice_image:latest ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/closed_issues_instance:latest
-        docker push ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/closed_issues_instance:latest
+        #docker build -t closed_issues_microservice_image closed_issues_microservice/
+        #docker tag closed_issues_microservice_image:latest ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/closed_issues_instance:latest
+        #docker push ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/closed_issues_instance:latest
     - name: Build and Push Created Commits Microservice Docker image
       run: |
-        docker build -t created_commits_microservice_image created_commits_microservice/
-        docker tag created_commits_microservice_image:latest ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_commits_instance:latest
-        docker push ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_commits_instance:latest
+        #docker build -t created_commits_microservice_image created_commits_microservice/
+        #docker tag created_commits_microservice_image:latest ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_commits_instance:latest
+        #docker push ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_commits_instance:latest
     - name: Build and Push Created PRs Microservice Docker image
       run: |
-        docker build -t created_prs_microservice_image created_prs_microservice/
-        docker tag created_prs_microservice_image:latest ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_prs_instance:latest
-        docker push ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_prs_instance:latest
+        #docker build -t created_prs_microservice_image created_prs_microservice/
+        #docker tag created_prs_microservice_image:latest ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_prs_instance:latest
+        #docker push ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_prs_instance:latest
 
     - name: Update kube config
       run: |
-        aws eks update-kubeconfig --name developer-cluster
+        #aws eks update-kubeconfig --name developer-cluster
 
     - name: Deploy to EKS
       run: |
-        kubectl apply -f blue-namespace.yaml
-        kubectl apply -f blue-deployment.yaml
-        kubectl apply -f blue-service.yaml
+        #kubectl apply -f blue-namespace.yaml
+        #kubectl apply -f blue-deployment.yaml
+        #kubectl apply -f blue-service.yaml

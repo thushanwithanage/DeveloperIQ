@@ -3,13 +3,14 @@ from pymongo.errors import PyMongoError
 import json
 
 from models.UserStats import UserStats
-from utils.config import database_url
 from utils.constants import database_name,stats_collection_name
 from utils.filter_query import get_filter_query
+from services.fetch_mongodb_secret import get_secret
 
 def get_monthly_stats(userId):
     try:
-        client = MongoClient(database_url)
+        db_url = get_secret()
+        client = MongoClient(db_url)
         db = client[database_name]
         collection = db[stats_collection_name]
 

@@ -3,12 +3,13 @@ from pymongo import MongoClient
 from pymongo.errors import PyMongoError
 
 from models.UserStats import UserStats
-from utils.config import database_url
 from utils.constants import database_name,stats_collection_name
+from services.fetch_mongodb_secret import get_secret
 
 def save_dev_stats(userStats: UserStats):
     try:
-        client = MongoClient(database_url)
+        db_url = get_secret()
+        client = MongoClient(db_url)
         db = client[database_name]
         collection = db[stats_collection_name]
 
