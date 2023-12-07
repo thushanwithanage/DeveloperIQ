@@ -1,1 +1,2 @@
 # DeveloperIQ
+[![DeveloperIQ](https://github.com/thushanwithanage/DeveloperIQ/actions/workflows/devops.yml/badge.svg?branch=main)](https://github.com/thushanwithanage/DeveloperIQ/actions/workflows/devops.yml)

@@ -7,4 +7,4 @@ build:
 	docker build -t created_issues_microservice_image .
 run:
 	#run docker
-	docker run -p 127.0.0.1:8081:8081 3a50d662e79f
+	docker run -p 127.0.0.1:8081:8081 8850a73fbf51

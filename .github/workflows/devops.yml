@@ -29,9 +29,9 @@ jobs:
 
     - name: Build and Push Created Issues Microservice Docker image
       run: |
-        docker build -t created_issues_microservice_image created_issues_microservice/
-        docker tag created_issues_microservice_image:latest ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_issues_instance:latest
-        docker push ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_issues_instance:latest
+        #docker build -t created_issues_microservice_image created_issues_microservice/
+        #docker tag created_issues_microservice_image:latest ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_issues_instance:latest
+        #docker push ${{ secrets.AWS_INSTANCE_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/created_issues_instance:latest
     - name: Build and Push Closed Issues Microservice Docker image
       run: |
         #docker build -t closed_issues_microservice_image closed_issues_microservice/
@@ -50,10 +50,10 @@ jobs:
 
     - name: Update kube config
       run: |
-        aws eks update-kubeconfig --name developer-cluster
+        #aws eks update-kubeconfig --name developer-cluster
 
     - name: Deploy to EKS
       run: |
-        kubectl apply -f blue-namespace.yaml
-        kubectl apply -f blue-deployment.yaml
-        kubectl apply -f blue-service.yaml
+        #kubectl apply -f blue-namespace.yaml
+        #kubectl apply -f blue-deployment.yaml
+        #kubectl apply -f blue-service.yaml
