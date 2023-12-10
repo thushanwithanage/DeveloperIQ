@@ -18,3 +18,66 @@ spec:
           image: 438911158232.dkr.ecr.ap-south-1.amazonaws.com/created_issues_instance:latest
           ports:
             - containerPort: 8081
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: closed-issues-microservice-blue
+  namespace: blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: microservices-blue
+  template:
+    metadata:
+      labels:
+        app: microservices-blue
+    spec:
+      containers:
+        - name: closed-issues-microservice
+          image: 438911158232.dkr.ecr.ap-south-1.amazonaws.com/closed_issues_instance:latest
+          ports:
+            - containerPort: 8082
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: created-commits-microservice-blue
+  namespace: blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: microservices-blue
+  template:
+    metadata:
+      labels:
+        app: microservices-blue
+    spec:
+      containers:
+        - name: created-commits-microservice
+          image: 438911158232.dkr.ecr.ap-south-1.amazonaws.com/created_commits_instance:latest
+          ports:
+            - containerPort: 8083
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: created-prs-microservice-blue
+  namespace: blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: microservices-blue
+  template:
+    metadata:
+      labels:
+        app: microservices-blue
+    spec:
+      containers:
+        - name: created-prs-microservice
+          image: 438911158232.dkr.ecr.ap-south-1.amazonaws.com/created_prs_instance:latest
+          ports:
+            - containerPort: 8084
