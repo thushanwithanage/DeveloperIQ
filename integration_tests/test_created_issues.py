@@ -1,7 +1,7 @@
 import requests
 import json
 
-base_url = "http://add3f81261b2145df973d8a261813177-1050804419.ap-south-1.elb.amazonaws.com:8081/"
+base_url = "http://aba7c0ccb12bf4b8b9b4d57dade32948-906313938.ap-south-1.elb.amazonaws.com:8081" #Update
 
 def test_root_endpoint():
     response = requests.get(f"{base_url}/")
